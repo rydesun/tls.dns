@@ -7,6 +7,7 @@ import (
 	"github.com/caddyserver/caddy/v2/modules/caddytls"
 	tlsdns "github.com/caddyserver/tls.dns"
 	"github.com/go-acme/lego/v3/challenge"
+	"github.com/go-acme/lego/v3/platform/config/env"
 	"github.com/go-acme/lego/v3/providers/dns/cloudflare"
 )
 
@@ -49,12 +50,23 @@ type Cloudflare struct {
 
 // NewDNSProvider returns a DNS challenge solver.
 func (wrapper Cloudflare) NewDNSProvider() (challenge.Provider, error) {
+	values, err := env.GetWithFallback(
+		[]string{"CLOUDFLARE_DNS_API_TOKEN", "CF_DNS_API_TOKEN"},
+		[]string{"CLOUDFLARE_ZONE_API_TOKEN", "CF_ZONE_API_TOKEN", "CLOUDFLARE_DNS_API_TOKEN", "CF_DNS_API_TOKEN"},
+	)
+	if err != nil {
+		return nil, err
+	}
 	cfg := cloudflare.NewDefaultConfig()
 	if wrapper.APIToken != "" {
 		cfg.AuthToken = wrapper.APIToken
+	} else {
+		cfg.AuthToken = values["CLOUDFLARE_DNS_API_TOKEN"]
 	}
 	if wrapper.ZoneAPIToken != "" {
 		cfg.ZoneToken = wrapper.ZoneAPIToken
+	} else {
+		cfg.ZoneToken = values["CLOUDFLARE_ZONE_API_TOKEN"]
 	}
 	if wrapper.CommonConfig.TTL != 0 {
 		cfg.TTL = wrapper.CommonConfig.TTL

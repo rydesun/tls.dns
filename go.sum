@@ -59,6 +59,8 @@ github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+Ce
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/caddyserver/caddy/v2 v2.0.0-beta.13.0.20200208045925-f7f6e371efcc h1:nxkcGMYg5dmrPIYcza/wl/hGYV+wPu8hqNOND992Sx4=
 github.com/caddyserver/caddy/v2 v2.0.0-beta.13.0.20200208045925-f7f6e371efcc/go.mod h1:ozs9CCkoO/b9ZmlB2Oy0BP4ygF6SFfDHOrWhY00tV8Q=
+github.com/caddyserver/tls.dns v0.0.0-20200209203058-83da3c680522 h1:QifITlpSKUi5+fuFtLrtCXnI+lTLWSPnTzIED+ASGW8=
+github.com/caddyserver/tls.dns v0.0.0-20200209203058-83da3c680522/go.mod h1:toBpOSYBNDFfg9lh8tMq8nngFBXN9K2rxmIMu5Iv0PM=
 github.com/cenkalti/backoff/v3 v3.0.0 h1:ske+9nBpD9qZsTBoF41nW5L+AIuFBKMeze18XQ3eG1c=
 github.com/cenkalti/backoff/v3 v3.0.0/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
 github.com/cenkalti/backoff/v3 v3.1.1 h1:UBHElAnr3ODEbpqPzX8g5sBcASjoLFtt3L/xwJ01L6E=
